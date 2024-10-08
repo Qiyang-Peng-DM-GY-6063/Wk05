@@ -6,7 +6,28 @@ function setup() {
 }
 
 function draw() {
-  rect(100, 50, 400, 200);
+  let rx = 100;
+  let ry = 50;
+  let rw = 400;
+  let rh = 200;
 
-  ellipse(200, 500, 300);
+  overLapRect(rx,ry,rw,rh,"deeppink");
+  overLapRect(700,700,50,50,"blue");
+
+
+  let cx = 200;
+  let cy = 500;
+  let cr = 150;
+
+  let distMouse = dist(mouseX, mouseY, cx, cy);
+
+  push();
+  if (distMouse < cr) {
+    fill("deeppink");
+  } else {
+    fill(255);
+  }
+  ellipse(cx, cy, 2 * cr);
+  pop();
 }
+
